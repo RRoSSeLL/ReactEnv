@@ -1,0 +1,8 @@
+.greeting {
+  white-space: nowrap;
+  font-size: clamp(10px, 7vw, 150px);
+}
+
+.greeting img {
+  height: clamp(15px, 10vw, 220px);
+}
