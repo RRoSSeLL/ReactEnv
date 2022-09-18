@@ -7,6 +7,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #050308;
+  background-color: #000;
   color: #DDD;
+  text-align: center;
+}
+
+.app-root h1, .app-root h4 {
+  margin: 0px;
 }

@@ -1,28 +1,29 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env) => ({
-  entry: "./src/index.tsx",
+  entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "app.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'app.js',
     clean: true,
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       root: path.resolve(__dirname),
-      src: path.resolve(__dirname, "src"),
-      assets: path.resolve(__dirname, "assets"),
-      components: path.resolve(__dirname, "src/components"),
+      src: path.resolve(__dirname, 'src'),
+      assets: path.resolve(__dirname, 'assets'),
+      utils: path.resolve(__dirname, 'src/utils'),
+      components: path.resolve(__dirname, 'src/components'),
     },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: "index.html",
-      title: "Micro React",
-      template: "./template/template.html",
-      inject: "head",
+      filename: 'index.html',
+      title: 'React Dev Env',
+      template: './template/template.html',
+      inject: 'head',
     }),
   ],
   module: {
@@ -31,16 +32,16 @@ module.exports = (env) => ({
         test: /\.(js|jsx)$/i,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: [["@babel/preset-react", { runtime: "automatic" }]],
+            presets: [['@babel/preset-react', { runtime: 'automatic' }]],
           },
         },
       },
       {
         test: /\.(ts|tsx)$/i,
         use: {
-          loader: "ts-loader",
+          loader: 'ts-loader',
           options: {
             compilerOptions: {
               noEmit: false,
@@ -51,26 +52,26 @@ module.exports = (env) => ({
       },
       {
         test: /.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|webp)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "./assets/[hash][ext]",
+          filename: './assets/[hash][ext]',
         },
       },
       {
         test: /.svg$/i,
-        type: "asset/inline",
+        type: 'asset/inline',
       },
     ],
   },
-  devtool: env.development ? "inline-source-map" : false,
+  devtool: env.development ? 'inline-source-map' : false,
   devServer: {
     port: 9000,
     compress: true,
     hot: true,
-    static: ["./src/assets", "./dist/assets"],
+    static: ['./src/assets', './dist/assets'],
   },
 });

@@ -1,2 +1,2 @@
-# MicroReact
-Minimal React setup for learning and quick POCs
+# React Dev Env
+React Development Environment

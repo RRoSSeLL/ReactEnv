@@ -1,5 +1,5 @@
 { 
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "./cypress.config.ts"],
   "compilerOptions": {
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
@@ -15,8 +15,10 @@
       "root/*": ["*"],
       "src/*": ["./src/*"],
       "assets/*": ["./assets/*"],
+      "utils/*": ["./src/utils/*"],
       "components/*": ["./src/components/*"]
-    }
+    },
+    "types": ["node"],
   },
   "exclude": ["dist"],
 }

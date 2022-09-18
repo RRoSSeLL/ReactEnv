@@ -1,9 +1,9 @@
-import GreetUser from "./GreetUser/GreetUser";
-import "./App.css";
+import GreetUser from './GreetUser/GreetUser';
+import './App.css';
 
 export const App = () : JSX.Element => (
   <div className="app-root">
-    <GreetUser user="Dev" />
+    <GreetUser user="Dev"/>
   </div>
 );
 
